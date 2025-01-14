@@ -6,7 +6,10 @@ terraform {
             version = "~>3.0"}
         http = {
             source  = "hashicorp/http"
-            version = "~> 2.0"
+            version = "~> 2.0"}
+        tls = {
+            source  = "hashicorp/tls"
+            version = "~> 3.1.0"}
         }
     }
 }
