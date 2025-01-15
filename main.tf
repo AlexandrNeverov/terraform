@@ -19,3 +19,12 @@ terraform {
         }
     }
 }
+
+resource "tls_private_key" "generated" {
+    algoritm = "RSA"
+}
+
+resource "local_file" "private_key_pem" {
+    content = tls.private_key_generated.private_key_pem
+    filename ="MyAWSkey.pem"
+}
