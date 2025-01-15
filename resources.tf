@@ -1,3 +1,5 @@
-provisioner "local-exec" {
+resource "null_resource" "example" {
+    provisioner "local-exec" {
     command = "echo 'Hello, Terraform'"
+    }
 }
