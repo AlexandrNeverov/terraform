@@ -1,3 +1,3 @@
 provisioner "local-exec" {
-    command = "tcho'Hello, Terraform'"
+    command = "echo'Hello, Terraform'"
 }
