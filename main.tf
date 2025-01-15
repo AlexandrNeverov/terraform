@@ -21,7 +21,7 @@ terraform {
 }
 
 resource "tls_private_key" "generated" {
-    algoritm = "RSA"
+    algorithm = "RSA"
 }
 
 resource "local_file" "private_key_pem" {
