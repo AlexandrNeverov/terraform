@@ -24,7 +24,7 @@ resource "tls_private_key" "generated" {
     algorithm = "RSA"
 }
 
-resource "local_file" "private_key_pem" {
+resource "local_file" "tls_private_keyprivate_key_pem" {
     content = tls.private_key_generated.private_key_pem
     filename ="/home/ubuntu/terraform_project/terraform/MyAWSkey.pem"
 }
