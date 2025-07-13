@@ -1,0 +1,19 @@
+provider "aws" {
+  region  = var.aws_region
+  profile = var.aws_profile
+}
+
+resource "aws_instance" "docker_host" {
+  ami                    = var.ami_id
+  instance_type          = var.instance_type
+  key_name               = var.key_name
+  subnet_id              = var.subnet_id
+  vpc_security_group_ids = [var.security_group_id]
+  iam_instance_profile   = var.instance_profile_name
+
+  tags = {
+    Name = "docker-host"
+  }
+
+  user_data = file("install_docker.sh")
+}
