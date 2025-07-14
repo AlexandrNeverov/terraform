@@ -1,9 +1,8 @@
 terraform {
   backend "s3" {
-    bucket         = "terraform-backend-zero-<TIMESTAMP>"
-    key            = "docker-node/terraform.tfstate"
+    bucket         = "terraform-backend-zero-1752515536"
+    key            = "state/terraform.tfstate"             
     region         = "us-east-1"
-    encrypt        = true
-    dynamodb_table = "terraform-locks-zero-<TIMESTAMP>"
+    use_lock_table = false                                 
   }
 }
