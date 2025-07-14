@@ -19,7 +19,7 @@ resource "aws_key_pair" "zero_node_key" {
 resource "aws_security_group" "allow_ssh" {
   name        = "allow_ssh"
   description = "Allow SSH access for Ansible"
-  vpc_id      = var.vpc_id
+  vpc_id      = "sg-0325e0fb5c34df152"
 
   ingress {
     description = "SSH access"
