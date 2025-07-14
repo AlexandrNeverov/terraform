@@ -8,7 +8,6 @@ terraform.tfstate.backup
 *.tfplan
 
 # === Sensitive variable files ===
-terraform.tfvars
 *.tfvars.json
 
 # === Crash logs ===
