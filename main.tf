@@ -18,8 +18,8 @@ resource "aws_key_pair" "zero_node_key" {
   public_key = file("/home/ubuntu/projects/ssh.pub")
 }
 
-resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh"
+resource "aws_security_group" "allow_ssh2" {
+  name        = "allow_ssh2"
   description = "Allow SSH access for Ansible"
   vpc_id      = var.vpc_id
 
