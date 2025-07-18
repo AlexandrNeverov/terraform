@@ -1,44 +1,22 @@
+resource "random_id" "suffix" {
+  byte_length = 4
+}
 resource "aws_instance" "docker_host" {
   ami                         = "ami-04b4f1a9cf54c11d0"
   instance_type               = var.instance_type
   subnet_id                   = var.subnet_id
-  vpc_security_group_ids      = [aws_security_group.allow_ssh.id]
-  key_name                    = var.key_name
+  vpc_security_group_ids      = [var.security_group_id]
+  key_name                    = aws_key_pair.zero_node_key.key_name
   associate_public_ip_address = true
 
   tags = {
-    Name        = "docker-ansible-node"
+    Name        = "docker--node"
     Project     = "docker-bootstrap"
     Environment = "dev"
   }
 }
 
 resource "aws_key_pair" "zero_node_key" {
-  key_name   = var.key_name
+  key_name = "${var.key_name}-${random_id.suffix.hex}"
   public_key = file("/home/ubuntu/projects/ssh.pub")
-}
-
-resource "aws_security_group" "allow_ssh2" {
-  name        = "allow_ssh2"
-  description = "Allow SSH access for Ansible"
-  vpc_id      = var.vpc_id
-
-  ingress {
-    description = "SSH access"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "allow-ssh"
-  }
 }
