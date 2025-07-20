@@ -1,4 +1,4 @@
-#  Docker-node Zero Bootstrap (with Terraform 🚀
+#  Docker-node Zero Bootstrap (with Terraform 🚀)
 
 ![Admin Terraform Bootstrap EC2 Demo](https://raw.githubusercontent.com/AlexandrNeverov/terraform_docker_setup/main/image.png)
 
