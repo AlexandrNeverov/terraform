@@ -72,7 +72,7 @@ terraform plan
 
 
 ```bash
-terraform plan
+terraform apply
 ```
 
 ---
